@@ -1,0 +1,11 @@
+[project]
+name = "poolparty-playlist"
+version = "0.1.0"
+description = "Build Spotify playlists for a poolside party from a curated YAML tracklist"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "spotipy>=2.23.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.1",
+]

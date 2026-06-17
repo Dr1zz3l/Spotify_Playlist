@@ -1,0 +1,346 @@
+# === POOLPARTY TRACKLIST ===
+# Phases: Chill (16-20) · Party (20-23) · Ausklang (23-02)
+# Each phase ends with a ~1.5-2 h buffer block (same vibe, deeper cuts).
+#
+# Fields:
+#   artist : str  – artist name used for Spotify search
+#   title  : str  – track title used for Spotify search
+#   gen    : str  – grandparents | parents | students | bridge
+#   energy : int  – 1 (very chill) … 5 (peak)
+#   tbd    : bool – true = title unknown, skip and note in report
+#
+# Overrides at the bottom: "Artist|Title" -> exact Spotify URI.
+# Fill in URIs for ambiguous or forced-original tracks after --dry-run.
+
+phases:
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - name: "Chill 16-20"
+    playlist_name: "Poolparty · Chill (16-20 Uhr)"
+    tracks:
+
+      # --- Opening: very chill, tropical / deep house ---
+      - {artist: "Klangkarussell",    title: "Sonnentanz",              gen: students,    energy: 1}
+      - {artist: "Klingande",         title: "Jubel",                   gen: students,    energy: 1}
+      - {artist: "Lost Frequencies",  title: "Are You with Me",         gen: students,    energy: 1}
+      - {artist: "Kygo",              title: "Firestone",               gen: students,    energy: 1}
+      - {artist: "Vance Joy",         title: "Riptide",                 gen: students,    energy: 2}
+      - {artist: "Milky Chance",      title: "Stolen Dance",            gen: students,    energy: 2}
+      - {artist: "OMI",               title: "Cheerleader",             gen: students,    energy: 2}
+      - {artist: "Felix Jaehn",       title: "Ain't Nobody",            gen: students,    energy: 2}
+      - {artist: "Clean Bandit",      title: "Rather Be",               gen: students,    energy: 2}
+      - {artist: "Lost Frequencies",  title: "Reality",                 gen: students,    energy: 2}
+
+      # --- DE-Indie acoustic ---
+      - {artist: "Philipp Poisel",       title: "Eiserner Steg",               gen: students, energy: 1}
+      - {artist: "AnnenMayKantereit",    title: "Barfuß am Klavier",           gen: students, energy: 1}
+      - {artist: "AnnenMayKantereit",    title: "3. Stock",                    gen: students, energy: 2}
+      - {artist: "Clueso",               title: "Cello",                       gen: students, energy: 2}
+      - {artist: "Bosse",                title: "Schönste Zeit",               gen: students, energy: 2}
+      - {artist: "Giant Rooks",          title: "Wild Stare",                  gen: students, energy: 2}
+      - {artist: "Provinz",              title: "Was machst du?",              gen: students, energy: 2}
+      - {artist: "Edwin Rosen",          title: "leichter",                    gen: students, energy: 2}
+      - {artist: "domiziana",            title: "Ohne Benzin",                 gen: students, energy: 2}
+      - {artist: "01099",                title: "Durchgehend Online",          gen: students, energy: 2}
+
+      # --- Alle Farben & tropical house ---
+      - {artist: "Alle Farben",        title: "She Moves",             gen: students,    energy: 2}
+      - {artist: "Alle Farben",        title: "Bad Ideas",             gen: students,    energy: 2}
+      - {artist: "Alle Farben",        title: "Leaves Are Falling",    gen: students,    energy: 2}
+      - {artist: "Gestört aber GeiL",  title: "Unter meiner Haut",    gen: students,    energy: 2}
+      - {artist: "Felix Jaehn",        title: "Cheerleader",           gen: students,    energy: 2}
+      - {artist: "Robin Schulz",       title: "Prayer in C",           gen: students,    energy: 2}
+
+      # --- DE-Indie / Pop mix ---
+      - {artist: "Bilderbuch",       title: "Bungalow",                gen: students,    energy: 2}
+      - {artist: "Wanda",            title: "Bologna",                 gen: students,    energy: 2}
+      - {artist: "Paula Hartmann",   title: "Alles brennt",            gen: students,    energy: 2}
+      - {artist: "Von Wegen Lisbeth",title: "Sweetie",                 gen: students,    energy: 2}
+      - {artist: "Schmyt",           title: "Unter einem Dach",        gen: students,    energy: 2}
+      - {artist: "Mark Forster",     title: "Sowieso",                 gen: students,    energy: 2}
+      - {artist: "Wincent Weiss",    title: "Musik sein",              gen: students,    energy: 2}
+      - {artist: "Lea",              title: "Leiser",                  gen: students,    energy: 2}
+      - {artist: "Alan Walker",      title: "Faded",                   gen: students,    energy: 2}
+      - {artist: "TheFatRat",        title: "Monody",                  gen: students,    energy: 2}
+
+      # --- Chill rising (energy 3) ---
+      - {artist: "Earth, Wind & Fire", title: "September",             gen: bridge,      energy: 3}
+      - {artist: "Bryan Adams",         title: "Summer of '69",        gen: bridge,      energy: 3}
+      - {artist: "a-ha",                title: "Take On Me",           gen: parents,     energy: 3}
+      - {artist: "Münchener Freiheit",  title: "Ohne dich",            gen: parents,     energy: 2}
+      - {artist: "George Ezra",         title: "Shotgun",              gen: bridge,      energy: 3}
+      - {artist: "Daft Punk",           title: "Get Lucky",            gen: students,    energy: 3}
+      - {artist: "Calvin Harris",       title: "Feel So Close",        gen: students,    energy: 3}
+      - {artist: "Mark Forster",        title: "Au revoir",            gen: students,    energy: 3}
+      - {artist: "Maroon 5",            title: "Moves Like Jagger",    gen: students,    energy: 3}
+      - {artist: "OneRepublic",         title: "Counting Stars",       gen: students,    energy: 3}
+      - {artist: "Cro",                 title: "Traum",                gen: students,    energy: 2}
+      - {artist: "Cro",                 title: "Easy",                 gen: students,    energy: 3}
+
+      # --- Bridge / warm-up section (towards 20:00) ---
+      - {artist: "Seeed",              title: "Augenbling",            gen: bridge,      energy: 3}
+      - {artist: "Peter Fox",          title: "Haus am See",           gen: bridge,      energy: 3}
+      - {artist: "Tones and I",        title: "Dance Monkey",          gen: bridge,      energy: 3}
+      - {artist: "Josh.",              title: "Cordula Grün",           gen: bridge,      energy: 3}
+      - {artist: "John Denver",        title: "Take Me Home, Country Roads", gen: bridge, energy: 3}
+      - {artist: "Neil Diamond",       title: "Sweet Caroline",        gen: bridge,      energy: 3}
+      - {artist: "Kool & the Gang",    title: "Celebration",           gen: bridge,      energy: 3}
+      - {artist: "Sportfreunde Stiller",title: "Ein Kompliment",       gen: parents,     energy: 3}
+      - {artist: "Max Giesinger",      title: "80 Millionen",          gen: parents,     energy: 3}
+      - {artist: "Glasperlenspiel",    title: "Geiles Leben",          gen: parents,     energy: 3}
+      - {artist: "Revolverheld",       title: "Halt dich an mir fest", gen: parents,     energy: 3}
+      - {artist: "Robbie Williams",    title: "Feel",                  gen: parents,     energy: 3}
+      - {artist: "Ed Sheeran",         title: "Shape of You",          gen: students,    energy: 3}
+      - {artist: "Ed Sheeran",         title: "Galway Girl",           gen: students,    energy: 3}
+
+      # --- BUFFER: deeper cuts, same chill vibe ---
+      - {artist: "Kygo",              title: "I'm in Love",            gen: students,    energy: 1}
+      - {artist: "Gestört aber GeiL", title: "Ich & Du",              gen: students,    energy: 2}
+      - {artist: "Robin Schulz",      title: "Sugar",                  gen: students,    energy: 2}
+      - {artist: "Zedd",              title: "The Middle",             gen: students,    energy: 2}
+      - {artist: "Major Lazer",       title: "Lean On",                gen: students,    energy: 2}
+      - {artist: "Glass Animals",     title: "Heat Waves",             gen: students,    energy: 2}
+      - {artist: "Dua Lipa",          title: "Don't Start Now",        gen: students,    energy: 2}
+      - {artist: "The Weeknd",        title: "Blinding Lights",        gen: students,    energy: 3}
+      - {artist: "AnnenMayKantereit", title: "Tommi",                  gen: students,    energy: 2}
+      - {artist: "AnnenMayKantereit", title: "Oft gefragt",            gen: students,    energy: 2}
+      - {artist: "Giant Rooks",       title: "Watershed",              gen: students,    energy: 2}
+      - {artist: "Bilderbuch",        title: "Maschin",                gen: students,    energy: 3}
+      - {artist: "Leoniden",          title: "Marlene",                gen: students,    energy: 3}
+      - {artist: "Provinz",           title: "Wir gehen steil",        gen: students,    energy: 3}
+      - {artist: "Von Wegen Lisbeth", title: "Wenn du tanzt",          gen: students,    energy: 3}
+      - {artist: "Nina Chuba",        title: "Wildberry Lillet",       gen: students,    energy: 3}
+      - {artist: "Nina Chuba",        title: "Mangos mit Chili",       gen: students,    energy: 3}
+      - {artist: "Paul Wetz",         title: "Gib mir die Sonne",      gen: students,    energy: 2}
+      - {artist: "Yu",                title: "Zu nah",                 gen: students,    energy: 2}
+      - {artist: "Coldplay",          title: "Viva la Vida",           gen: parents,     energy: 3}
+      - {artist: "Oasis",             title: "Don't Look Back in Anger", gen: parents,   energy: 2}
+      - {artist: "Wir sind Helden",   title: "Nur ein Wort",           gen: parents,     energy: 2}
+      - {artist: "Juli",              title: "Perfekte Welle",         gen: parents,     energy: 3}
+      - {artist: "Silbermond",        title: "Das Beste",              gen: parents,     energy: 3}
+      - {artist: "Madsen",            title: "Lass die Musik an",      gen: parents,     energy: 3}
+      - {artist: "Jan Delay",         title: "Oh Jonny",               gen: parents,     energy: 3}
+      - {artist: "Culcha Candela",    title: "Monsta",                 gen: parents,     energy: 3}
+      - {artist: "Söhne Mannheims",   title: "Und wenn ein Lied",      gen: parents,     energy: 2}
+      - {artist: "Modern Talking",    title: "You're My Heart, You're My Soul", gen: parents, energy: 3}
+      - {artist: "Maroon 5",          title: "Sugar",                  gen: students,    energy: 3}
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - name: "Party 20-23"
+    playlist_name: "Poolparty · Party (20-23 Uhr)"
+    tracks:
+
+      # --- Opening kick: high energy entry ---
+      - {artist: "Die Toten Hosen",   title: "Tage wie diese",         gen: bridge,      energy: 4}
+      - {artist: "Helene Fischer",    title: "Atemlos durch die Nacht",gen: bridge,      energy: 5}
+      - {artist: "Mark Ronson",       title: "Uptown Funk",            gen: bridge,      energy: 5}
+      - {artist: "Avicii",            title: "Wake Me Up",             gen: bridge,      energy: 4}
+      - {artist: "David Guetta",      title: "Titanium",               gen: students,    energy: 4}
+      - {artist: "Black Eyed Peas",   title: "I Gotta Feeling",        gen: parents,     energy: 4}
+      - {artist: "Taylor Swift",      title: "Shake It Off",           gen: students,    energy: 4}
+      - {artist: "LMFAO",             title: "Party Rock Anthem",      gen: students,    energy: 5}
+      - {artist: "Kesha",             title: "TiK ToK",                gen: students,    energy: 5}
+      - {artist: "Katy Perry",        title: "Roar",                   gen: students,    energy: 4}
+
+      # --- NDW / 80er block ---
+      - {artist: "Spider Murphy Gang", title: "Skandal im Sperrbezirk", gen: parents,   energy: 5}
+      - {artist: "Nena",              title: "99 Luftballons",          gen: parents,    energy: 4}
+      - {artist: "Falco",             title: "Rock Me Amadeus",         gen: parents,    energy: 5}
+      - {artist: "Peter Schilling",   title: "Major Tom",              gen: parents,     energy: 4}
+      - {artist: "Europe",            title: "The Final Countdown",    gen: parents,     energy: 5}
+      - {artist: "Survivor",          title: "Eye of the Tiger",       gen: parents,     energy: 4}
+      - {artist: "Bon Jovi",          title: "Livin' on a Prayer",     gen: parents,     energy: 5}
+      - {artist: "Dead or Alive",     title: "You Spin Me Round",      gen: parents,     energy: 4}
+      - {artist: "Whitney Houston",   title: "I Wanna Dance with Somebody", gen: parents, energy: 4}
+      - {artist: "Cyndi Lauper",      title: "Girls Just Want to Have Fun", gen: parents, energy: 4}
+      - {artist: "Queen",             title: "Don't Stop Me Now",      gen: bridge,      energy: 5}
+      - {artist: "Alphaville",        title: "Forever Young",          gen: parents,     energy: 4}
+      - {artist: "Modern Talking",    title: "Brother Louie",          gen: parents,     energy: 4}
+      - {artist: "Toto",              title: "Africa",                 gen: bridge,      energy: 4}
+      - {artist: "a-ha",              title: "Take On Me",             gen: parents,     energy: 4}
+
+      # --- 90er DE-Rock / Hip-Hop ---
+      - {artist: "Die Ärzte",          title: "Westerland",            gen: parents,     energy: 4}
+      - {artist: "Die Ärzte",          title: "Junge",                 gen: parents,     energy: 5}
+      - {artist: "Die Fantastischen Vier", title: "MfG",              gen: parents,     energy: 4}
+      - {artist: "Fettes Brot",        title: "Jein",                  gen: parents,     energy: 4}
+      - {artist: "Deichkind",          title: "Remmidemmi",            gen: parents,     energy: 5}
+      - {artist: "K.I.Z",              title: "Hurra die Welt geht unter", gen: parents, energy: 5}
+      - {artist: "Seeed",              title: "Ding",                  gen: parents,     energy: 4}
+      - {artist: "Peter Fox",          title: "Schüttel deinen Speck", gen: parents,     energy: 5}
+      - {artist: "Scooter",            title: "Hyper Hyper",           gen: parents,     energy: 5}
+      - {artist: "Haddaway",           title: "What Is Love",          gen: parents,     energy: 4}
+      - {artist: "Snap!",              title: "Rhythm Is a Dancer",    gen: parents,     energy: 4}
+      - {artist: "Culcha Candela",     title: "Hamma!",                gen: parents,     energy: 4}
+
+      # --- Cross-gen singalongs + EDM peak ---
+      - {artist: "Swedish House Mafia", title: "Don't You Worry Child", gen: students,  energy: 5}
+      - {artist: "Martin Garrix",       title: "Animals",              gen: students,    energy: 5}
+      - {artist: "Timmy Trumpet",       title: "Freaks",               gen: students,    energy: 5}
+      - {artist: "Avicii",              title: "Levels",               gen: students,    energy: 5}
+      - {artist: "Lady Gaga",           title: "Bad Romance",          gen: students,    energy: 5}
+      - {artist: "Rihanna",             title: "We Found Love",        gen: students,    energy: 5}
+      - {artist: "The Killers",         title: "Mr. Brightside",       gen: bridge,      energy: 4}
+      - {artist: "Queen",               title: "Bohemian Rhapsody",    gen: bridge,      energy: 4}
+      - {artist: "ABBA",                title: "Dancing Queen",        gen: bridge,      energy: 4}
+      - {artist: "Journey",             title: "Don't Stop Believin'", gen: bridge,      energy: 4}
+
+      # --- DE-Rap anthems ---
+      - {artist: "Bonez MC & RAF Camora", title: "Palmen aus Plastik", gen: students,   energy: 4}
+      - {artist: "Apache 207",          title: "Roller",               gen: students,    energy: 4}
+      - {artist: "Apache 207",          title: "Komet",                gen: bridge,      energy: 4}
+      - {artist: "Kraftklub",           title: "Ich will nicht nach Berlin", gen: students, energy: 4}
+      - {artist: "AnnenMayKantereit",   title: "Pocahontas",           gen: students,    energy: 4}
+      - {artist: "Tream",               title: "Stammtischparolen",    gen: students,    energy: 5}
+      - {artist: "Ayliva",              title: "Wunder",               gen: students,    energy: 4}
+      - {artist: "Bausa",               title: "Was du Liebe nennst",  gen: students,    energy: 4}
+      - {artist: "Pashanim",            title: "Airwaves",             gen: students,    energy: 4}
+      - {artist: "Cro",                 title: "Easy",                 gen: students,    energy: 4}
+
+      # --- Malle / Schlager / Disco block (dosiert, ~10 songs) ---
+      - {artist: "Ski Aggu",           title: "Friesenjung",           gen: bridge,      energy: 5}
+      - {artist: "Andreas Bourani",    title: "Auf uns",               gen: bridge,      energy: 4}
+      - {artist: "DJ Ötzi",            title: "Ein Stern",             gen: bridge,      energy: 4}
+      - {artist: "Lorenz Büffel",      title: "Johnny Däpp",           gen: parents,     energy: 5}
+      - {artist: "Markus Becker",      title: "Das rote Pferd",        gen: parents,     energy: 5}
+      - {artist: "Village People",     title: "Y.M.C.A.",              gen: grandparents,energy: 4}
+      - {artist: "Gloria Gaynor",      title: "I Will Survive",        gen: grandparents,energy: 4}
+      - {artist: "Los Del Rio",        title: "Macarena",              gen: grandparents,energy: 4}
+      - {artist: "Ikke Hüftgold",      title: "Layla",                 gen: students,    energy: 5}
+      - {artist: "Tim Toupet",         title: "Fliegerlied",           gen: parents,     energy: 4}
+
+      # --- Rock block (dosiert, ~4 songs) ---
+      - {artist: "Böhse Onkelz",  title: "Auf gute Freunde",          gen: parents,     energy: 5}
+      - {artist: "Rammstein",     title: "Zeit",                      gen: parents,     energy: 4}
+      - {artist: "Rammstein",     title: "Amerika",                   gen: parents,     energy: 5}
+      - {artist: "Böhse Onkelz",  title: "Danket dem Herrn",          gen: parents,     energy: 5}
+
+      # --- BUFFER: more party, same energy ---
+      - {artist: "Avicii",            title: "The Nights",             gen: students,    energy: 4}
+      - {artist: "Avicii",            title: "Hey Brother",            gen: students,    energy: 4}
+      - {artist: "Avicii",            title: "Waiting for Love",       gen: students,    energy: 4}
+      - {artist: "David Guetta",      title: "Memories",               gen: students,    energy: 4}
+      - {artist: "David Guetta",      title: "Sexy Bitch",             gen: students,    energy: 4}
+      - {artist: "Calvin Harris",     title: "Summer",                 gen: students,    energy: 4}
+      - {artist: "Zedd",              title: "Clarity",                gen: students,    energy: 4}
+      - {artist: "Katy Perry",        title: "Firework",               gen: students,    energy: 4}
+      - {artist: "Katy Perry",        title: "Teenage Dream",          gen: students,    energy: 4}
+      - {artist: "Katy Perry",        title: "Last Friday Night",      gen: students,    energy: 4}
+      - {artist: "Taylor Swift",      title: "Love Story",             gen: students,    energy: 3}
+      - {artist: "Taylor Swift",      title: "Blank Space",            gen: students,    energy: 3}
+      - {artist: "Lady Gaga",         title: "Poker Face",             gen: students,    energy: 4}
+      - {artist: "Outkast",           title: "Hey Ya!",                gen: bridge,      energy: 4}
+      - {artist: "Die Toten Hosen",   title: "Hier kommt Alex",        gen: parents,     energy: 4}
+      - {artist: "Die Ärzte",         title: "Männer sind Schweine",   gen: parents,     energy: 4}
+      - {artist: "Die Fantastischen Vier", title: "Sie ist weg",       gen: parents,     energy: 4}
+      - {artist: "Fettes Brot",       title: "Emanuela",               gen: parents,     energy: 4}
+      - {artist: "Beginner",          title: "Ahnma",                  gen: parents,     energy: 4}
+      - {artist: "Marteria",          title: "Kids (2 Finger an den Kopf)", gen: parents, energy: 4}
+      - {artist: "Die Prinzen",       title: "Alles nur geklaut",      gen: parents,     energy: 4}
+      - {artist: "Scooter",           title: "How Much Is the Fish",   gen: parents,     energy: 5}
+      - {artist: "Aqua",              title: "Barbie Girl",            gen: parents,     energy: 4}
+      - {artist: "Lou Bega",          title: "Mambo No. 5",            gen: parents,     energy: 4}
+      - {artist: "Mr. President",     title: "Coco Jamboo",            gen: parents,     energy: 4}
+      - {artist: "Eiffel 65",         title: "Blue (Da Ba Dee)",       gen: parents,     energy: 4}
+      - {artist: "Vengaboys",         title: "Boom, Boom, Boom, Boom!!", gen: parents,   energy: 4}
+      - {artist: "Jan Delay",         title: "Klar",                   gen: parents,     energy: 4}
+      - {artist: "Mickie Krause",     title: "Schatzi schenk mir ein Foto", gen: parents,energy: 4}
+      - {artist: "Andreas Gabalier",  title: "Hulapalu",               gen: parents,     energy: 4}
+      - {artist: "Sportfreunde Stiller", title: "54, 74, 90, 2010",   gen: parents,     energy: 4}
+
+  # ─────────────────────────────────────────────────────────────────────────
+  - name: "Ausklang 23-02"
+    playlist_name: "Poolparty · Ausklang (23-02 Uhr)"
+    tracks:
+
+      # --- Transition from party (energy 3) ---
+      - {artist: "Andreas Bourani",    title: "Auf uns",               gen: bridge,      energy: 3}
+      - {artist: "Mark Forster",       title: "Chöre",                 gen: students,    energy: 3}
+      - {artist: "Robbie Williams",    title: "Angels",                gen: parents,     energy: 3}
+      - {artist: "Die Toten Hosen",    title: "Bonnie & Clyde",        gen: parents,     energy: 3}
+      - {artist: "Silbermond",         title: "Symphonie",             gen: parents,     energy: 3}
+      - {artist: "Kings of Leon",      title: "Sex on Fire",           gen: parents,     energy: 3}
+      - {artist: "Kraftklub",          title: "Schüsse in die Luft",   gen: students,    energy: 3}
+      - {artist: "Von Wegen Lisbeth",  title: "Wenn du tanzt",         gen: students,    energy: 3}
+      - {artist: "Nina Chuba",         title: "Wildberry Lillet",      gen: students,    energy: 3}
+      - {artist: "Casper",             title: "Im Ascheregen",         gen: students,    energy: 3}
+      - {artist: "Sportfreunde Stiller", title: "Applaus, Applaus",    gen: parents,     energy: 3}
+      - {artist: "Glasperlenspiel",    title: "Geiles Leben",          gen: parents,     energy: 3}
+      - {artist: "Max Giesinger",      title: "80 Millionen",          gen: parents,     energy: 3}
+      - {artist: "Wir sind Helden",    title: "Denkmal",               gen: parents,     energy: 3}
+      - {artist: "Tim Bendzko",        title: "Nur noch kurz die Welt retten", gen: parents, energy: 3}
+
+      # --- Mid-energy DE wind-down (energy 2-3) ---
+      - {artist: "Alligatoah",         title: "Willst du",             gen: students,    energy: 3}
+      - {artist: "Kraftklub",          title: "Dein Lied",             gen: students,    energy: 2}
+      - {artist: "Kraftklub",          title: "Songs für Liam",        gen: students,    energy: 2}
+      - {artist: "AnnenMayKantereit",  title: "Oft gefragt",           gen: students,    energy: 2}
+      - {artist: "AnnenMayKantereit",  title: "Tommi",                 gen: students,    energy: 2}
+      - {artist: "AnnenMayKantereit",  title: "Tom's Diner",           gen: students,    energy: 2}
+      - {artist: "Montez",             title: "Auf das was da noch kommt", gen: students, energy: 2}
+      - {artist: "Sido",               title: "Bilder im Kopf",        gen: students,    energy: 2}
+      - {artist: "Ayliva",             title: "Sie weiß",              gen: students,    energy: 2}
+      - {artist: "Ayliva",             title: "Weißes Haus",           gen: students,    energy: 2}
+      - {artist: "Mark Forster",       title: "194 Länder",            gen: students,    energy: 2}
+      - {artist: "Wincent Weiss",      title: "Feuerwerk",             gen: students,    energy: 2}
+      - {artist: "Namika",             title: "Lieblingsmensch",       gen: students,    energy: 2}
+      - {artist: "Revolverheld",       title: "Lass uns gehen",        gen: parents,     energy: 2}
+      - {artist: "Söhne Mannheims",    title: "Und wenn ein Lied",     gen: parents,     energy: 2}
+
+      # --- International classics (energy 2-3) ---
+      - {artist: "Oasis",             title: "Wonderwall",             gen: parents,     energy: 2}
+      - {artist: "Oasis",             title: "Don't Look Back in Anger", gen: parents,  energy: 2}
+      - {artist: "Coldplay",          title: "Yellow",                 gen: parents,     energy: 2}
+      - {artist: "Coldplay",          title: "Fix You",                gen: parents,     energy: 1}
+      - {artist: "Coldplay",          title: "Viva la Vida",           gen: parents,     energy: 3}
+      - {artist: "Ed Sheeran",        title: "Photograph",             gen: students,    energy: 2}
+      - {artist: "Robbie Williams",   title: "Let Me Entertain You",   gen: parents,     energy: 3}
+      - {artist: "Adel Tawil",        title: "Lieder",                 gen: bridge,      energy: 2}
+      - {artist: "Münchener Freiheit",title: "Ohne dich",              gen: parents,     energy: 2}
+
+      # --- Late German (energy 1-2) ---
+      - {artist: "Clueso",            title: "Gewinner",               gen: students,    energy: 2}
+      - {artist: "Provinz",           title: "Was machst du?",         gen: students,    energy: 2}
+      - {artist: "Edwin Rosen",       title: "leichter",               gen: students,    energy: 2}
+      - {artist: "Giant Rooks",       title: "Watershed",              gen: students,    energy: 2}
+      - {artist: "Bosse",             title: "Schönste Zeit",          gen: students,    energy: 2}
+      - {artist: "Philipp Poisel",    title: "Eiserner Steg",          gen: students,    energy: 1}
+
+      # --- BUFFER: very late, winding fully down ---
+      - {artist: "Wanda",             title: "Bologna",                gen: students,    energy: 2}
+      - {artist: "Bilderbuch",        title: "Bungalow",               gen: students,    energy: 2}
+      - {artist: "domiziana",         title: "Ohne Benzin",            gen: students,    energy: 2}
+      - {artist: "Paula Hartmann",    title: "Alles brennt",           gen: students,    energy: 2}
+      - {artist: "Schmyt",            title: "Unter einem Dach",       gen: students,    energy: 2}
+      - {artist: "Paul Wetz",         title: "Gib mir die Sonne",      gen: students,    energy: 2}
+      - {artist: "Yu",                title: "Zu nah",                 gen: students,    energy: 2}
+      - {artist: "Nina Chuba",        title: "Mangos mit Chili",       gen: students,    energy: 2}
+      - {artist: "Leoniden",          title: "Marlene",                gen: students,    energy: 2}
+      - {artist: "Kraftklub",         title: "Eure Mädchen",           gen: students,    energy: 2}
+      - {artist: "Casper",            title: "Lang lebe der Tod",      gen: students,    energy: 2}
+      - {artist: "Broilers",          title: "Ist da jemand?",         gen: parents,     energy: 2}
+      - {artist: "Madsen",            title: "Lass die Musik an",      gen: parents,     energy: 2}
+      - {artist: "Silbermond",        title: "Das Beste",              gen: parents,     energy: 2}
+      - {artist: "Wir sind Helden",   title: "Nur ein Wort",           gen: parents,     energy: 2}
+      - {artist: "Juli",              title: "Perfekte Welle",         gen: parents,     energy: 2}
+      - {artist: "Revolverheld",      title: "Halt dich an mir fest",  gen: parents,     energy: 2}
+      - {artist: "Fettes Brot",       title: "Bettina",                gen: parents,     energy: 2}
+      - {artist: "Beginner",          title: "Füchse",                 gen: parents,     energy: 2}
+      - {artist: "Dua Lipa",          title: "Levitating",             gen: students,    energy: 2}
+      - {artist: "AnnenMayKantereit", title: "Barfuß am Klavier",     gen: students,    energy: 1}
+      - {artist: "Clueso",            title: "Cello",                  gen: students,    energy: 1}
+      - {artist: "Philipp Poisel",    title: "Vom Weitersein",         gen: students,    energy: 1}
+      - {artist: "Giant Rooks",       title: "Burning Man",            gen: students,    energy: 2}
+      - {artist: "Montez",            title: "Amore",                  gen: students,    energy: 2}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OVERRIDES: paste exact Spotify URIs to force a specific version.
+# Key format: "Artist|Title" – must EXACTLY match artist + title in tracks above.
+# Run with --dry-run first, then fill in any UNMATCHED or wrong-version tracks here.
+# ─────────────────────────────────────────────────────────────────────────────
+overrides:
+  # "Alphaville|Forever Young": "spotify:track:FILL_ME_IN"  # force 1984 original
+  # "Wencke Myhre|Er hat ein knallrotes Gummiboot": "spotify:track:FILL_ME_IN"  # force 1970 original
+  # "Trude Herr|Ich will keine Schokolade": "spotify:track:FILL_ME_IN"  # force original
+  # "Reezy|Monster": "spotify:track:FILL_ME_IN"  # confirm 2022 version
+  # "Alle Farben|Leaves Are Falling": "spotify:track:FILL_ME_IN"  # confirm correct track
