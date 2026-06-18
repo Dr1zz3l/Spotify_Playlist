@@ -10,6 +10,7 @@ Usage:
 
 import argparse
 import csv
+import json
 import os
 import sys
 from pathlib import Path
@@ -23,6 +24,7 @@ SCOPE = "playlist-modify-public playlist-modify-private"
 REDIRECT_URI = "http://127.0.0.1:8888/callback"
 TRACKLIST_FILE = "tracklist.yaml"
 REPORT_FILE = "report.csv"
+TRACK_CACHE_FILE = ".track_cache.json"
 
 # Clock time each phase starts at – used to project hh:mm positions in the report
 PHASE_START_TIMES = {
@@ -78,15 +80,32 @@ def add_clock_time(start: str, seconds: int) -> str:
     return f"{total // 3600:02d}:{(total % 3600) // 60:02d}"
 
 
+# ── Search result cache (avoids re-querying Spotify on repeated runs) ────────
+
+def load_cache() -> dict:
+    try:
+        return json.loads(Path(TRACK_CACHE_FILE).read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def save_cache(cache: dict) -> None:
+    Path(TRACK_CACHE_FILE).write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
 # ── Spotify search ───────────────────────────────────────────────────────────
 
-def search_track(sp: spotipy.Spotify, artist: str, title: str) -> dict | None:
+def search_track(sp: spotipy.Spotify, artist: str, title: str, cache: dict) -> dict | None:
     """
     Search Spotify for the best-matching track.
     Strategy: try quoted search first; fall back to unquoted.
     Scoring: exact artist match > title match > popularity; penalise live/karaoke.
     Returns a Spotify track dict or None when nothing usable is found.
     """
+    cache_key = f"{artist}|{title}"
+    if cache_key in cache:
+        return cache[cache_key]  # None is stored for known misses
+
     want_live = "live" in title.lower()
     norm_artist = normalize(artist)
     norm_title = normalize(title)
@@ -111,14 +130,26 @@ def search_track(sp: spotipy.Spotify, artist: str, title: str) -> dict | None:
     if not candidates:
         return None
 
+    # Significant words in the wanted artist name (skip tokens <= 2 chars like "&")
+    want_words = {w for w in norm_artist.split() if len(w) > 2}
+
+    def artist_word_overlap(track_artists: list[str]) -> bool:
+        """Return True when at least one significant word is shared with the wanted artist."""
+        if not want_words:
+            return True  # single short token (e.g. "U2") — skip guard
+        all_result_words = {w for a in track_artists for w in a.split() if len(w) > 2}
+        return bool(want_words & all_result_words)
+
     def score(t: dict) -> float:
         track_artists = [normalize(a["name"]) for a in t["artists"]]
         track_title = normalize(t["name"])
-        artist_match = any(norm_artist in a or a in norm_artist for a in track_artists)
+        artist_exact = any(norm_artist in a or a in norm_artist for a in track_artists)
+        artist_overlap = artist_word_overlap(track_artists)
         title_match = norm_title in track_title or track_title in norm_title
         unwanted = is_unwanted_version(t["name"], want_live)
         return (
-            int(artist_match) * 100
+            int(artist_exact) * 100
+            + int(artist_overlap) * 40
             + int(title_match) * 50
             + (t.get("popularity") or 0)
             - int(unwanted) * 200
@@ -126,7 +157,15 @@ def search_track(sp: spotipy.Spotify, artist: str, title: str) -> dict | None:
 
     candidates.sort(key=score, reverse=True)
     best = candidates[0]
-    return best if score(best) >= 50 else None
+
+    # Reject if no significant artist word overlaps — avoids wrong-artist false positives
+    best_artists = [normalize(a["name"]) for a in best["artists"]]
+    if not artist_word_overlap(best_artists):
+        return None
+
+    result = best if score(best) >= 50 else None
+    cache[cache_key] = result  # store hit or None-miss
+    return result
 
 
 # ── Phase builder ─────────────────────────────────────────────────────────────
@@ -136,6 +175,7 @@ def build_phase(
     user_id: str,
     phase: dict,
     overrides: dict[str, str],
+    cache: dict,
     dry_run: bool,
 ) -> list[dict]:
     """
@@ -148,7 +188,7 @@ def build_phase(
     tracks       = phase.get("tracks", [])
 
     prefix = "[DRY RUN] " if dry_run else ""
-    print(f"\n{prefix}── {phase_name} ({len(tracks)} tracks) ──")
+    print(f"\n{prefix}-- {phase_name} ({len(tracks)} tracks) --")
 
     uris: list[str] = []
     results: list[dict] = []
@@ -176,13 +216,14 @@ def build_phase(
                 duration_ms  = info["duration_ms"]
                 matched_name = info["name"]
                 matched_artist = info["artists"][0]["name"]
-                popularity   = info["popularity"]
+                popularity   = info.get("popularity", 0)
             except Exception as exc:
                 print(f"  ERROR  fetching override '{override_uri}': {exc}")
                 results.append(_row(phase_name, gen, artist, title, status="OVERRIDE_ERROR"))
                 continue
         else:
-            match = search_track(sp, artist, title)
+            match = search_track(sp, artist, title, cache)
+            save_cache(cache)  # persist immediately so progress survives interruption
             if match:
                 uri          = match["uri"]
                 duration_ms  = match["duration_ms"]
@@ -217,16 +258,15 @@ def build_phase(
 
     # Create playlist and add tracks (unless dry run)
     if not dry_run and uris:
-        playlist = sp.user_playlist_create(
-            user_id,
-            playlist_name,
-            public=False,
-            description=f"Poolparty – {phase_name}",
-        )
+        playlist = sp._post("me/playlists", payload={
+            "name": playlist_name,
+            "public": False,
+            "description": f"Poolparty – {phase_name}",
+        })
         pid = playlist["id"]
         for i in range(0, len(uris), 100):   # Spotify allows max 100 URIs per call
             sp.playlist_add_items(pid, uris[i:i + 100])
-        print(f"\n  ✓ Created '{playlist_name}' with {len(uris)} tracks.")
+        print(f"\n  OK Created '{playlist_name}' with {len(uris)} tracks.")
     elif dry_run:
         print(f"\n  (dry run) would add {len(uris)} tracks to '{playlist_name}'")
 
@@ -303,10 +343,16 @@ def main() -> None:
             print(f"Phase '{target_name}' not found in {TRACKLIST_FILE}")
             sys.exit(1)
 
+    cache = load_cache()
+    cached_count = sum(1 for v in cache.values() if v is not None)
+    if cache:
+        print(f"Cache loaded: {cached_count} hits / {len(cache)} entries ({Path(TRACK_CACHE_FILE).name})")
+
     all_results: list[dict] = []
     for phase in phases:
-        rows = build_phase(sp, user_id, phase, overrides, dry_run=args.dry_run)
+        rows = build_phase(sp, user_id, phase, overrides, cache, dry_run=args.dry_run)
         all_results.extend(rows)
+        save_cache(cache)  # persist after each phase so progress survives interruption
 
     write_report(all_results, REPORT_FILE)
 
