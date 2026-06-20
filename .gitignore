@@ -17,6 +17,7 @@ wheels/
 # Generated output
 report.csv
 sort_report.csv
+harvest_report.csv
 
 # OS
 .DS_Store

@@ -20,6 +20,9 @@ Explicit/original versions allowed. All code comments in English.
   - `--build2` rebuilds the whole curated+sorted **2.0 set** from `tracklist.yaml`.
   - `--shape arc|peak|winddown` · `--signal dance|energy|curated` · `--dry-run`
   - Caches ReccoBeats features in `.audio_cache.json`.
+- **`harvest_chill.py`** — mines the user's own playlists (Oldies/Calm/Calm morning Beats)
+  + AnnenMayKantereit, classifies candidates by ReccoBeats energy into chill/ausklang/skip,
+  ranks by popularity, writes `harvest_report.csv`. Read-only against Spotify.
 - Gitignored: `.env`, `.cache`, `.track_cache.json`, `.audio_cache.json`, `report.csv`, `sort_report.csv`.
 - Run with **uv**: `uv run python sort_playlist.py --build2`. Set `$env:PYTHONIOENCODING="utf-8"` on Windows.
 
@@ -36,6 +39,9 @@ Explicit/original versions allowed. All code comments in English.
   - Playlist items nest the track under `item["item"]`, NOT `item["track"]` (now a bool). Read both.
   - Full playlist object exposes `items`, not `tracks`.
   - Create playlists via `sp._post("me/playlists", payload=...)`; `user_playlist_create` 403s.
+  - **More 403s for new apps**: `sp.tracks`/`sp.track` (`/v1/tracks`), `sp.artist_top_tracks`.
+    Playlist items no longer carry `popularity` either → get popularity from **ReccoBeats**
+    (`/v1/track` returns it). `sp.search` limit is capped at **20** (50 → 400 Invalid limit).
 - Re-auth note: `sort_playlist.py` added scope `playlist-read-private` → delete `.cache` to re-authorize.
 - A new Spotify dev app resets the daily rate limit (the original app hit a ~24h 429 lock during dev).
 
@@ -44,9 +50,16 @@ Originals (Chill/Party/Ausklang, unsorted) are untouched. The 2.0 set:
 
 | Playlist | Tracks | Sort | Avg BPM jump |
 |---|---|---|---|
-| Poolparty · Chill · 2.0 (16-20 Uhr)  | 78 | peak (gentle rise), signal=energy | 2.6 |
+| Poolparty · Chill · 2.0 (16-20 Uhr)  | 126 | peak (gentle rise), signal=energy | 2.6 |
 | Poolparty · Party · 2.0 (20-23 Uhr)  | 111 | peak (ends hot), signal=dance | **2.4** (best) |
-| Poolparty · Ausklang · 2.0 (23-02 Uhr) | 47 | winddown (descending), signal=energy | 20.9 |
+| Poolparty · Ausklang · 2.0 (23-02 Uhr) | 58 | winddown (descending), signal=energy | 26.3 |
+
+**Chill/Ausklang extended (+~3 h)** by harvesting the user's Oldies/Calm/Calm morning Beats
+playlists + AnnenMayKantereit via `harvest_chill.py`: +48 Chill, +11 Ausklang, classified by
+ReccoBeats energy (≥0.72 skip, ≤0.32 ausklang, else chill), ranked by popularity. Exact URIs
+pinned as `overrides`. AMK "Can't Get You Out of My Head" cover isn't on Spotify (Kylie original
+used instead); a few clear misfits dropped (Manson–Sweet Dreams, 9-min November Rain, Oliver
+Anthony–Rich Men, deep Pink Floyd cuts).
 
 `--build2` is **idempotent**: it replaces the contents of an existing same-named playlist
 in place (no duplicates), so re-run it freely after editing `tracklist.yaml`.

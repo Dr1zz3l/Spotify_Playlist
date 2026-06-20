@@ -121,6 +121,57 @@ phases:
       - {artist: "Modern Talking",    title: "You're My Heart, You're My Soul", gen: parents, energy: 3}
       - {artist: "Maroon 5",          title: "Sugar",                  gen: students,    energy: 3}
 
+      # --- Extension: harvested from Calm/Oldies/Calm morning Beats ---
+      - {artist: "The Police", title: "Every Breath You Take", gen: bridge, energy: 3}
+      - {artist: "Arctic Monkeys", title: "I Wanna Be Yours", gen: bridge, energy: 3}
+      - {artist: "One Direction", title: "Story of My Life", gen: bridge, energy: 4}
+      - {artist: "Hotel Ugly", title: "Shut up My Moms Calling", gen: bridge, energy: 3}
+      - {artist: "CYRIL", title: "Stumblin' In", gen: bridge, energy: 3}
+      - {artist: "The White Stripes", title: "Seven Nation Army", gen: bridge, energy: 3}
+      - {artist: "Mazzy Star", title: "Fade Into You", gen: bridge, energy: 2}
+      - {artist: "Backstreet Boys", title: "I Want It That Way", gen: bridge, energy: 4}
+      - {artist: "Camila Cabello", title: "Havana (feat. Young Thug)", gen: bridge, energy: 3}
+      - {artist: "Green Day", title: "Good Riddance (Time of Your Life)", gen: bridge, energy: 3}
+      - {artist: "Lukas Graham", title: "7 Years", gen: bridge, energy: 3}
+      - {artist: "Lynyrd Skynyrd", title: "Sweet Home Alabama", gen: bridge, energy: 4}
+      - {artist: "America", title: "A Horse with No Name", gen: bridge, energy: 3}
+      - {artist: "Kim Carnes", title: "Bette Davis Eyes", gen: bridge, energy: 4}
+      - {artist: "Led Zeppelin", title: "Stairway to Heaven - Remaster", gen: bridge, energy: 2}
+      - {artist: "Stephen Sanchez", title: "Until I Found You (with Em Beihold) - Em Beihold Version", gen: bridge, energy: 4}
+      - {artist: "Kylie Minogue", title: "Can't Get You out of My Head", gen: bridge, energy: 4}
+      - {artist: "George Harrison", title: "My Sweet Lord - 2014 Remaster", gen: bridge, energy: 4}
+      - {artist: "3 Doors Down", title: "Here Without You", gen: bridge, energy: 3}
+      - {artist: "MGMT", title: "Little Dark Age", gen: bridge, energy: 4}
+      - {artist: "Kansas", title: "Dust in the Wind", gen: bridge, energy: 2}
+      - {artist: "Al Green", title: "Let's Stay Together", gen: bridge, energy: 3}
+      - {artist: "The Animals", title: "House of the Rising Sun", gen: bridge, energy: 3}
+      - {artist: "Kenny Rogers", title: "The Gambler", gen: bridge, energy: 3}
+      - {artist: "Bee Gees", title: "Stayin' Alive", gen: bridge, energy: 3}
+      - {artist: "Player", title: "Baby Come Back", gen: bridge, energy: 4}
+      - {artist: "Queen", title: "Radio Ga Ga - Remastered 2011", gen: bridge, energy: 3}
+      - {artist: "Foreigner", title: "Waiting for a Girl like You", gen: bridge, energy: 3}
+      - {artist: "Pink Floyd", title: "Breathe (In the Air)", gen: bridge, energy: 3}
+      - {artist: "P!nk", title: "What About Us", gen: bridge, energy: 4}
+      - {artist: "Lana Del Rey", title: "Summertime Sadness", gen: bridge, energy: 4}
+      - {artist: "alt-J", title: "Breezeblocks", gen: bridge, energy: 4}
+      - {artist: "Bobby Caldwell", title: "What You Won't Do for Love", gen: bridge, energy: 3}
+      - {artist: "Baltimora", title: "Tarzan Boy", gen: bridge, energy: 4}
+      - {artist: "Tom Walker", title: "Leave a Light On", gen: bridge, energy: 4}
+      - {artist: "Dolly Parton", title: "Jolene", gen: bridge, energy: 3}
+      - {artist: "FINNEAS", title: "Let's Fall in Love for the Night", gen: bridge, energy: 3}
+      - {artist: "The Beatles", title: "All My Loving - Remastered 2009", gen: bridge, energy: 4}
+      - {artist: "Roxy Music", title: "More Than This", gen: bridge, energy: 4}
+      - {artist: "The Beatles", title: "Hey Jude - Remastered 2015", gen: bridge, energy: 4}
+      - {artist: "WILLIS", title: "I Think I Like When It Rains", gen: bridge, energy: 3}
+      - {artist: "Alec Benjamin", title: "Devil Doesn’t Bargain", gen: bridge, energy: 4}
+      - {artist: "Bob Dylan", title: "The Times They Are A-Changin'", gen: bridge, energy: 3}
+      - {artist: "2Pac", title: "Dear Mama", gen: bridge, energy: 3}
+      # --- Extension: more AnnenMayKantereit (Kylie cover not on Spotify -> Kylie original is in the chill list above) ---
+      - {artist: "AnnenMayKantereit", title: "Es geht mir gut", gen: students, energy: 3}
+      - {artist: "AnnenMayKantereit", title: "Ich geh heut nicht mehr tanzen", gen: students, energy: 3}
+      - {artist: "AnnenMayKantereit", title: "Marie", gen: students, energy: 2}
+      - {artist: "AnnenMayKantereit", title: "Wohin du gehst", gen: students, energy: 2}
+
   # ─────────────────────────────────────────────────────────────────────────
   - name: "Party 20-23"
     playlist_name: "Poolparty · Party (20-23 Uhr)"
@@ -344,6 +395,19 @@ phases:
       - {artist: "Giant Rooks",       title: "Springtime Sehnsucht",   gen: students,    energy: 2, tbd: true}
       - {artist: "Montez",            title: "Tanz mit mir",           gen: students,    energy: 2, tbd: true}
 
+      # --- Extension: harvested wind-down (Calm/Oldies) ---
+      - {artist: "Tracy Chapman", title: "Fast Car", gen: bridge, energy: 2}
+      - {artist: "Phil Collins", title: "In The Air Tonight - 2015 Remastered", gen: bridge, energy: 2}
+      - {artist: "Louis Armstrong", title: "What A Wonderful World", gen: bridge, energy: 1}
+      - {artist: "Carla Morrison", title: "Disfruto", gen: bridge, energy: 1}
+      - {artist: "Bruno Major", title: "Nothing", gen: bridge, energy: 2}
+      - {artist: "Pink Floyd", title: "The Great Gig in the Sky", gen: bridge, energy: 2}
+      - {artist: "Guns N' Roses", title: "Patience", gen: bridge, energy: 2}
+      - {artist: "Paris Paloma", title: "the fruits", gen: bridge, energy: 1}
+      - {artist: "Pink Floyd", title: "Us and Them", gen: bridge, energy: 2}
+      - {artist: "Frank Sinatra", title: "Fly Me To The Moon - 2008 Remastered", gen: bridge, energy: 2}
+      - {artist: "Gary Jules", title: "Mad World", gen: bridge, energy: 1}
+
 # ─────────────────────────────────────────────────────────────────────────────
 # OVERRIDES: paste exact Spotify URIs to force a specific version.
 # Key format: "Artist|Title" – must EXACTLY match artist + title in tracks above.
@@ -365,6 +429,63 @@ overrides:
   "Alle Farben|She Moves": "spotify:track:6ggAYREO7PlFwI2vbOG3dp"
   "Clueso|Cello": "spotify:track:62BukCU8nVt44KQXm0LUff"
   "Die Fantastischen Vier|MfG": "spotify:track:6Fs72goSBrzyjEzpnfqZWs"
+  # -- Harvested additions (exact URIs from the user's playlists) --
+  "AnnenMayKantereit|Wohin du gehst": "spotify:track:40PO9gfu9bHdnsQqEKrcjg"
+  "The Police|Every Breath You Take": "spotify:track:1JSTJqkT5qHq8MDJnJbRE1"
+  "Arctic Monkeys|I Wanna Be Yours": "spotify:track:5XeFesFbtLpXzIVDNQP22n"
+  "One Direction|Story of My Life": "spotify:track:4nVBt6MZDDP6tRVdQTgxJg"
+  "Hotel Ugly|Shut up My Moms Calling": "spotify:track:3hxIUxnT27p5WcmjGUXNwx"
+  "CYRIL|Stumblin' In": "spotify:track:0h3Xy4V4apMraB5NuM8U7Z"
+  "The White Stripes|Seven Nation Army": "spotify:track:3dPQuX8Gs42Y7b454ybpMR"
+  "Mazzy Star|Fade Into You": "spotify:track:1LzNfuep1bnAUR9skqdHCK"
+  "Backstreet Boys|I Want It That Way": "spotify:track:47BBI51FKFwOMlIiX6m8ya"
+  "Camila Cabello|Havana (feat. Young Thug)": "spotify:track:1rfofaqEpACxVEHIZBJe6W"
+  "Green Day|Good Riddance (Time of Your Life)": "spotify:track:6ORqU0bHbVCRjXm9AjyHyZ"
+  "Lukas Graham|7 Years": "spotify:track:5kqIPrATaCc2LqxVWzQGbk"
+  "Lynyrd Skynyrd|Sweet Home Alabama": "spotify:track:7e89621JPkKaeDSTQ3avtg"
+  "America|A Horse with No Name": "spotify:track:54eZmuggBFJbV7k248bTTt"
+  "Kim Carnes|Bette Davis Eyes": "spotify:track:0odIT9B9BvOCnXfS0e4lB5"
+  "Led Zeppelin|Stairway to Heaven - Remaster": "spotify:track:5CQ30WqJwcep0pYcV4AMNc"
+  "Stephen Sanchez|Until I Found You (with Em Beihold) - Em Beihold Version": "spotify:track:1Y3LN4zO1Edc2EluIoSPJN"
+  "Kylie Minogue|Can't Get You out of My Head": "spotify:track:3E7ZwUMJFqpsDOJzEkBrQ7"
+  "George Harrison|My Sweet Lord - 2014 Remaster": "spotify:track:0KZodeWxqxd88F9wY1cqgs"
+  "3 Doors Down|Here Without You": "spotify:track:3NLrRZoMF0Lx6zTlYqeIo4"
+  "MGMT|Little Dark Age": "spotify:track:2Y0iGXY6m6immVb2ktbseM"
+  "Kansas|Dust in the Wind": "spotify:track:6zeE5tKyr8Nu882DQhhSQI"
+  "Al Green|Let's Stay Together": "spotify:track:63xdwScd1Ai1GigAwQxE8y"
+  "The Animals|House of the Rising Sun": "spotify:track:4mn2kNTqiGLwaUR8JdhJ1l"
+  "Kenny Rogers|The Gambler": "spotify:track:5KqldkCunQ2rWxruMEtGh0"
+  "Bee Gees|Stayin' Alive": "spotify:track:4UDmDIqJIbrW0hMBQMFOsM"
+  "Player|Baby Come Back": "spotify:track:41sGGCCoHI2GLV9qadX80A"
+  "Queen|Radio Ga Ga - Remastered 2011": "spotify:track:1nQRg9q9uwALGzouOX5OyQ"
+  "Foreigner|Waiting for a Girl like You": "spotify:track:2OgVsp77En2nju8pnCieVU"
+  "Pink Floyd|Breathe (In the Air)": "spotify:track:2ctvdKmETyOzPb2GiJJT53"
+  "P!nk|What About Us": "spotify:track:0Qh38w01QRXK6KHIv0e3hb"
+  "Lana Del Rey|Summertime Sadness": "spotify:track:1Ist6PR2BZR3n2z2Y5R6S1"
+  "alt-J|Breezeblocks": "spotify:track:1ZLroqJA8qoS5QEeCo0fA7"
+  "Bobby Caldwell|What You Won't Do for Love": "spotify:track:6Dk5fHTvH897XrVzCO64Mx"
+  "Baltimora|Tarzan Boy": "spotify:track:273uCXd7NPrInaiNqtkOrA"
+  "Tom Walker|Leave a Light On": "spotify:track:4iVVU8DyQvOVsKafv3KWIF"
+  "Dolly Parton|Jolene": "spotify:track:2SpEHTbUuebeLkgs9QB7Ue"
+  "FINNEAS|Let's Fall in Love for the Night": "spotify:track:4pfhgOylRLcBll5JjUsJZj"
+  "The Beatles|All My Loving - Remastered 2009": "spotify:track:4joiWvli4qJVEW6qZV2i2J"
+  "Roxy Music|More Than This": "spotify:track:6N7gPTru90HYLRUIVDQ185"
+  "The Beatles|Hey Jude - Remastered 2015": "spotify:track:0aym2LBJBk9DAYuHHutrIl"
+  "WILLIS|I Think I Like When It Rains": "spotify:track:1Roq03sTKb6TPKBY89YJ4v"
+  "Alec Benjamin|Devil Doesn’t Bargain": "spotify:track:1zu2GKHPJIsUu80SUJX4H4"
+  "Bob Dylan|The Times They Are A-Changin'": "spotify:track:52vA3CYKZqZVdQnzRrdZt6"
+  "2Pac|Dear Mama": "spotify:track:6tDxrq4FxEL2q15y37tXT9"
+  "Tracy Chapman|Fast Car": "spotify:track:2M9ro2krNb7nr7HSprkEgo"
+  "Phil Collins|In The Air Tonight - 2015 Remastered": "spotify:track:18AXbzPzBS8Y3AkgSxzJPb"
+  "Louis Armstrong|What A Wonderful World": "spotify:track:29U7stRjqHU6rMiS8BfaI9"
+  "Carla Morrison|Disfruto": "spotify:track:6UR5tB1wVm7qvH4xfsHr8m"
+  "Bruno Major|Nothing": "spotify:track:1lORkxEMmsCZqhoxcmk3A3"
+  "Pink Floyd|The Great Gig in the Sky": "spotify:track:2TjdnqlpwOjhijHCwHCP2d"
+  "Guns N' Roses|Patience": "spotify:track:1OEoNpiyqBghuEUaT6Je6U"
+  "Paris Paloma|the fruits": "spotify:track:58VTP6KnZs12PcAj5rMJ4W"
+  "Pink Floyd|Us and Them": "spotify:track:1TKTiKp3zbNgrBH2IwSwIx"
+  "Frank Sinatra|Fly Me To The Moon - 2008 Remastered": "spotify:track:7FXj7Qg3YorUxdrzvrcY25"
+  "Gary Jules|Mad World": "spotify:track:3JOVTQ5h8HGFnDdp4VT3MP"
   #
   "2raumwohnung|36Grad": "spotify:track:0FHOsVoIME9NILYoxtZMxN"
   "Achim Reichel|Aloha Heja He": "spotify:track:7zJ484L2fucBwgfvUjb6Mv"
